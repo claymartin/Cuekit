@@ -1,15 +1,14 @@
 // Cue Kit JavaScript for interactivity
 
-// Update slider value displays in real-time
 function updateSliderValue(sliderId, valueId) {
     const slider = document.getElementById(sliderId);
     const valueSpan = document.getElementById(valueId);
+    if (!slider || !valueSpan) return;
     slider.addEventListener('input', function() {
         valueSpan.textContent = slider.value;
     });
 }
 
-// Initialize slider updates for cue-plan.html
 document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('confidence')) {
         updateSliderValue('confidence', 'confidence-value');
@@ -17,9 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSliderValue('focus', 'focus-value');
         updateSliderValue('tension', 'tension-value');
     }
+
+    const generateBtn = document.getElementById('generate-plan');
+    if (generateBtn) {
+        generateBtn.addEventListener('click', generateCuePlan);
+    }
 });
 
-// Cue definitions
 const cues = {
     breathing: { color: 'blue', name: 'Breathing: Calm your body and reset after mistakes.', fullName: 'Breathing' },
     imagery: { color: 'yellow', name: 'Imagery: Picture yourself executing plays before they happen.', fullName: 'Imagery' },
@@ -29,7 +32,6 @@ const cues = {
     resetRoutine: { color: 'white', name: 'Reset Routine: Flush the last point and start the next one clean.', fullName: 'Reset Routine' }
 };
 
-// Generate cue plan logic
 function generateCuePlan() {
     const confidence = parseInt(document.getElementById('confidence').value);
     const anxiety = parseInt(document.getElementById('anxiety').value);
@@ -43,7 +45,6 @@ function generateCuePlan() {
         return;
     }
 
-    // Determine primary cue based on ratings
     let primaryKey;
     if (anxiety >= 4) {
         primaryKey = 'breathing';
@@ -57,7 +58,6 @@ function generateCuePlan() {
         primaryKey = 'resetRoutine';
     }
 
-    // Determine secondary cue based on challenge
     let secondaryKey;
     switch (challenge) {
         case 'overthinking':
@@ -76,12 +76,10 @@ function generateCuePlan() {
             secondaryKey = 'resetRoutine';
     }
 
-    // Avoid duplicate cues
     if (secondaryKey === primaryKey) {
         secondaryKey = Object.keys(cues).find(key => key !== primaryKey);
     }
 
-    // Determine routine based on preference
     let routine;
     if (preference === 'structured') {
         routine = 'Perform a 3-step reset routine between points: 1. Take a deep breath (breathing cue), 2. Visualize the next play (imagery cue), 3. Affirm "I\'ve got this" (self-talk cue).';
@@ -89,14 +87,13 @@ function generateCuePlan() {
         routine = 'Use your primary and secondary cues flexibly as needed between points.';
     }
 
-    // Display the plan
     document.getElementById('primary-cue').textContent = cues[primaryKey].name;
     document.getElementById('secondary-cue').textContent = cues[secondaryKey].name;
     document.getElementById('routine').textContent = routine;
 
-    // Display colors
     const cueColorsDiv = document.getElementById('cue-colors');
     cueColorsDiv.innerHTML = '';
+
     const primaryDiv = document.createElement('div');
     primaryDiv.className = `cue-card cue-${cues[primaryKey].color}`;
     primaryDiv.textContent = `${cues[primaryKey].color.toUpperCase()} - ${cues[primaryKey].fullName}`;
@@ -109,11 +106,3 @@ function generateCuePlan() {
 
     document.getElementById('cue-plan-output').style.display = 'block';
 }
-
-// Attach event listener to generate button
-document.addEventListener('DOMContentLoaded', function() {
-    const generateBtn = document.getElementById('generate-plan');
-    if (generateBtn) {
-        generateBtn.addEventListener('click', generateCuePlan);
-    }
-});
