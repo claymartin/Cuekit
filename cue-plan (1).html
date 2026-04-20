@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cue Plan Builder - Cue Kit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">Cue Kit</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="cue-plan.html">Cue Plan</a></li>
+            </ul>
+        </nav>
+        <a href="index.html" class="btn btn-secondary">Back to Home</a>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1>Build Your Cue Plan</h1>
+            <p>Enter your recent ratings from the journal and answer a few questions to get your personalized cue plan.</p>
+
+            <form id="cue-plan-form">
+                <div class="question">
+                    <h3>Confidence (1-5)</h3>
+                    <input type="range" id="confidence" min="1" max="5" value="3" class="slider">
+                    <span id="confidence-value">3</span>
+                </div>
+
+                <div class="question">
+                    <h3>Anxiety (1-5)</h3>
+                    <input type="range" id="anxiety" min="1" max="5" value="3" class="slider">
+                    <span id="anxiety-value">3</span>
+                </div>
+
+                <div class="question">
+                    <h3>Focus (1-5)</h3>
+                    <input type="range" id="focus" min="1" max="5" value="3" class="slider">
+                    <span id="focus-value">3</span>
+                </div>
+
+                <div class="question">
+                    <h3>Physical Tension (1-5)</h3>
+                    <input type="range" id="tension" min="1" max="5" value="3" class="slider">
+                    <span id="tension-value">3</span>
+                </div>
+
+                <div class="question">
+                    <h3>What's your biggest challenge today?</h3>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="challenge" value="overthinking"> Overthinking mistakes</label>
+                        <label class="radio-option"><input type="radio" name="challenge" value="tension"> Physical tension</label>
+                        <label class="radio-option"><input type="radio" name="challenge" value="focus"> Losing focus</label>
+                        <label class="radio-option"><input type="radio" name="challenge" value="confidence"> Low confidence</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>Do you prefer structured routines or flexible cues?</h3>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="preference" value="structured"> Structured routines</label>
+                        <label class="radio-option"><input type="radio" name="preference" value="flexible"> Flexible cues</label>
+                    </div>
+                </div>
+
+                <button type="button" id="generate-plan" class="btn btn-primary">Generate Cue Plan</button>
+            </form>
+
+            <div id="cue-plan-output" class="cue-plan-output" style="display: none;">
+                <h3>Your Cue Plan</h3>
+                <p>Primary Cue: <span id="primary-cue"></span></p>
+                <p>Secondary Cue: <span id="secondary-cue"></span></p>
+                <p>Routine: <span id="routine"></span></p>
+                <p>Wear these colors on your shoe straps:</p>
+                <div id="cue-colors"></div>
+                <a href="#" class="btn btn-secondary">Print or Save Plan</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo">Cue Kit</div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="cue-plan.html">Cue Plan</a>
+        </div>
+        <p>&copy; 2023 Cue Kit. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
