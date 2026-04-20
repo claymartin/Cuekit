@@ -1,0 +1,98 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Cue Plan Builder - Cue Kit&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Montserrat:wght@700&amp;display=swap" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;div class="logo"&gt;Cue Kit&lt;/div&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="cue-plan.html"&gt;Cue Plan&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;a href="index.html" class="btn btn-secondary"&gt;Back to Home&lt;/a&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section class="section"&gt;
+            &lt;h1&gt;Build Your Cue Plan&lt;/h1&gt;
+            &lt;p&gt;Enter your recent ratings from the journal and answer a few questions to get your personalized cue plan.&lt;/p&gt;
+
+            &lt;form id="cue-plan-form"&gt;
+                &lt;div class="question"&gt;
+                    &lt;h3&gt;Confidence (1-5)&lt;/h3&gt;
+                    &lt;input type="range" id="confidence" min="1" max="5" value="3" class="slider"&gt;
+                    &lt;span id="confidence-value"&gt;3&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;div class="question"&gt;
+                    &lt;h3&gt;Anxiety (1-5)&lt;/h3&gt;
+                    &lt;input type="range" id="anxiety" min="1" max="5" value="3" class="slider"&gt;
+                    &lt;span id="anxiety-value"&gt;3&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;div class="question"&gt;
+                    &lt;h3&gt;Focus (1-5)&lt;/h3&gt;
+                    &lt;input type="range" id="focus" min="1" max="5" value="3" class="slider"&gt;
+                    &lt;span id="focus-value"&gt;3&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;div class="question"&gt;
+                    &lt;h3&gt;Physical Tension (1-5)&lt;/h3&gt;
+                    &lt;input type="range" id="tension" min="1" max="5" value="3" class="slider"&gt;
+                    &lt;span id="tension-value"&gt;3&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;div class="question"&gt;
+                    &lt;h3&gt;What's your biggest challenge today?&lt;/h3&gt;
+                    &lt;div class="radio-group"&gt;
+                        &lt;label class="radio-option"&gt;&lt;input type="radio" name="challenge" value="overthinking"&gt; Overthinking mistakes&lt;/label&gt;
+                        &lt;label class="radio-option"&gt;&lt;input type="radio" name="challenge" value="tension"&gt; Physical tension&lt;/label&gt;
+                        &lt;label class="radio-option"&gt;&lt;input type="radio" name="challenge" value="focus"&gt; Losing focus&lt;/label&gt;
+                        &lt;label class="radio-option"&gt;&lt;input type="radio" name="challenge" value="confidence"&gt; Low confidence&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="question"&gt;
+                    &lt;h3&gt;Do you prefer structured routines or flexible cues?&lt;/h3&gt;
+                    &lt;div class="radio-group"&gt;
+                        &lt;label class="radio-option"&gt;&lt;input type="radio" name="preference" value="structured"&gt; Structured routines&lt;/label&gt;
+                        &lt;label class="radio-option"&gt;&lt;input type="radio" name="preference" value="flexible"&gt; Flexible cues&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;button type="button" id="generate-plan" class="btn btn-primary"&gt;Generate Cue Plan&lt;/button&gt;
+            &lt;/form&gt;
+
+            &lt;div id="cue-plan-output" class="cue-plan-output" style="display: none;"&gt;
+                &lt;h3&gt;Your Cue Plan&lt;/h3&gt;
+                &lt;p&gt;Primary Cue: &lt;span id="primary-cue"&gt;&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;Secondary Cue: &lt;span id="secondary-cue"&gt;&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;Routine: &lt;span id="routine"&gt;&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;Wear these colors on your shoe straps:&lt;/p&gt;
+                &lt;div id="cue-colors"&gt;&lt;/div&gt;
+                &lt;a href="#" class="btn btn-secondary"&gt;Print or Save Plan&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;div class="logo"&gt;Cue Kit&lt;/div&gt;
+        &lt;div class="footer-links"&gt;
+            &lt;a href="index.html"&gt;Home&lt;/a&gt;
+            &lt;a href="about.html"&gt;About&lt;/a&gt;
+            &lt;a href="cue-plan.html"&gt;Cue Plan&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;p&gt;&amp;copy; 2023 Cue Kit. All rights reserved.&lt;/p&gt;
+    &lt;/footer&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;

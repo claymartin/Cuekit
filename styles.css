@@ -1,0 +1,206 @@
+/* Cue Kit Styles */
+/* Fonts: Assuming Inter or similar sans-serif */
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #222222;
+  background-color: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: none; /* Sentence case */
+}
+
+a {
+  text-decoration: none;
+  color: #1E6FD8;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  background-color: #FFFFFF;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0C1B3A;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: #0C1B3A;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: #F4A328;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #E6951A;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #1E6FD8;
+  border: 1px solid #1E6FD8;
+}
+
+.btn-secondary:hover {
+  background-color: #1E6FD8;
+  color: #FFFFFF;
+}
+
+/* Footer */
+footer {
+  background-color: #0C1B3A;
+  color: #FFFFFF;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Sections */
+.section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+.card {
+  background-color: #F5F7FB;
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.cue-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0.25rem;
+}
+
+/* Colors for cues */
+.cue-blue { background-color: #1E6FD8; color: #FFFFFF; }
+.cue-yellow { background-color: #F5C842; }
+.cue-orange { background-color: #F4A328; color: #FFFFFF; }
+.cue-purple { background-color: #5B3BAE; color: #FFFFFF; }
+.cue-brown { background-color: #222222; color: #FFFFFF; }
+.cue-white { background-color: #FFFFFF; border: 1px solid #E0E0E0; }
+
+/* Interactive elements for cue-plan */
+.slider {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.question {
+  margin: 1rem 0;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cue-plan-output {
+  background-color: #F5F7FB;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+  .cards {
+    flex-direction: column;
+  }
+}
